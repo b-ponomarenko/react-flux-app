@@ -3,16 +3,19 @@ const React = require('react');
 const Home = require('./components/homePage');
 const About = require('./components/about/aboutPage');
 const Header = require('./components/common/header');
+const Authors = require('./components/authors/authorPage');
 
 ((window) => {
 	const App = React.createClass({
 		render() {
-			debugger;
 			let Child;
 
 			switch (this.props.route) {
 				case 'about':
 					Child = About;
+					break;
+				case 'authors':
+					Child = Authors;
 					break;
 				default:
 					Child = Home;
