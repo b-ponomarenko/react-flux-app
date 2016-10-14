@@ -25,7 +25,6 @@ var CourseApi = {
 
 	saveCourse: function(course) {
 		console.log('Imagine saving course via AJAX call...');
-
 		if (course.id) {
 			var existingCourseIndex = _.indexOf(courses, _.find(courses, {id: course.id}));
 			courses.splice(existingCourseIndex, 1, course);

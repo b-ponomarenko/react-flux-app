@@ -3,7 +3,7 @@
 const React = require('react');
 const Router = require('react-router');
 const Link = Router.Link;
-const AuthorStore = require('../../stores/authorStore');
+const AuthorStore = require('../../stores/stores').AuthorStore;
 const AuthorList = require('./authorList');
 
 const Authors = React.createClass({
@@ -13,7 +13,7 @@ const Authors = React.createClass({
 		}
 	},
 	componentWillMount() {
-		console.log('emit')
+		console.log('emit');
 		AuthorStore.addChangeListener(this._onChange);
 	},
 	componentWillUnmount() {

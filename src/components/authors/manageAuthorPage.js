@@ -4,7 +4,7 @@ const React = require('react');
 const Router = require('react-router');
 const AuthorForm = require('./authorForm');
 const AuthorActions = require('../../actions/authorActions');
-const AuthorStore = require('../../stores/authorStore');
+const AuthorStore = require('../../stores/stores').AuthorStore;
 const toastr = require('toastr');
 
 const ManageAuthorPage = React.createClass({

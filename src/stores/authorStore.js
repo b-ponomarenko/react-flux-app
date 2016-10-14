@@ -1,7 +1,5 @@
 'use strict';
 
-const Dispatcher = require('../dispatcher/appDispatcher');
-const ActionTypes = require('../constants/actionTypes');
 const EventEmitter = require('events').EventEmitter;
 const _ = require('lodash');
 const CHANGE_EVENT = 'change';
@@ -27,35 +25,29 @@ const AuthorStore = Object.assign({}, EventEmitter.prototype, {
 
 	getAuthorById(id) {
 		return _.find(_authors, {id});
+	},
+
+	init(authors) {
+		_authors = authors;
+	},
+
+	_createAuthor(author) {
+		_authors.push(author);
+	},
+
+	_updateAuthor(author) {
+		let existingAuthor = _.find(_authors, { id: author.id });
+		let existingAuthorIndex = _.indexOf(_authors, existingAuthor);
+		_authors.splice(existingAuthorIndex, 1, author);
+	},
+
+	_removeAuthor(id) {
+		_.remove(_authors, (author) => {
+			return id === author.id
+		});
 	}
 
 });
 
-Dispatcher.register((action) => {
-	switch (action.actionType) {
-		case ActionTypes.INITIALIZE:
-			_authors = action.initialData.authors;
-			AuthorStore.emitChange();
-			break;
-		case ActionTypes.CREATE_AUTHOR:
-			_authors.push(action.author);
-			AuthorStore.emitChange();
-			break;
-		case ActionTypes.UPDATE_AUTHOR:
-			let existingAuthor = _.find(_authors, { id: action.author.id });
-			let existingAuthorIndex = _.indexOf(_authors, existingAuthor);
-			_authors.splice(existingAuthorIndex, 1, action.author);
-			AuthorStore.emitChange();
-			break;
-		case ActionTypes.DELETE_AUTHOR:
-			_.remove(_authors, (author) => {
-				return action.id === author.id
-			});
-			AuthorStore.emitChange();
-			break;
-		default:
-	}
-
-});
 
 module.exports = AuthorStore;

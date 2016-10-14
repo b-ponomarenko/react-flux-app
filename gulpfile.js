@@ -36,10 +36,10 @@ gulp.task('connect', function() {
 	});
 });
 
-gulp.task('open', ['connect'], function() {
-	gulp.src('dist/index.html')
-		.pipe(open({ uri: config.devBaseUrl + ':' + config.port + '/'}));
-});
+// gulp.task('open', ['connect'], function() {
+// 	gulp.src('dist/index.html')
+// 		.pipe(open({ uri: config.devBaseUrl + ':' + config.port + '/'}));
+// });
 
 gulp.task('html', function() {
 	gulp.src(config.paths.html)

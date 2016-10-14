@@ -15,6 +15,8 @@ const routes = (
 		<Route name="addAuthor" path="author" handler={require('./components/authors/ManageAuthorPage')} />
 		<Route name="about" handler={require('./components/about/aboutPage')} />
 		<Route name="manageAuthor" path="author/:id" handler={require('./components/authors/ManageAuthorPage')} />
+		<Route name="manageCourse" path="course/:id" handler={require('./components/courses/ManageCoursePage')} />
+		<Route name="addCourse" path="course" handler={require('./components/courses/ManageCoursePage')} />
 
 		<Route name="courses" handler={require('./components/courses/coursePage')} />
 
