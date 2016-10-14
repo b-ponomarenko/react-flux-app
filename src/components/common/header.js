@@ -14,6 +14,7 @@ const Header = React.createClass({
 					<ul className="nav navbar-nav">
 						<li><Link activeClassName={'activeClass'} to="app" >Home</Link></li>
 						<li><Link activeClassName={'activeClass'} to="authors">Authors</Link></li>
+						<li><Link activeClassName={'activeClass'} to="courses">Courses</Link></li>
 						<li><Link activeClassName={'activeClass'} to="about">About</Link></li>
 					</ul>
 				</div>

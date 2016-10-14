@@ -15,6 +15,9 @@ const routes = (
 		<Route name="addAuthor" path="author" handler={require('./components/authors/ManageAuthorPage')} />
 		<Route name="about" handler={require('./components/about/aboutPage')} />
 		<Route name="manageAuthor" path="author/:id" handler={require('./components/authors/ManageAuthorPage')} />
+
+		<Route name="courses" handler={require('./components/courses/coursePage')} />
+
 		<NotFoundRouter handler={require('./components/notFoundPage')}/>
 		<Redirect from="about-us" to="about" />
 		<Redirect from="about/*" to="about" />
